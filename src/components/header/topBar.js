@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import Nav from './nav.js';
 import Logo from './logo.js';
-import CartIcon from './cartIcon.js';
+import CartButton from './cartButton.js';
 import UserIcon from './userIcon.js';
+import Cart from './cart.js';
 
 const TopBarStyled = styled.div`
     border-bottom: solid 1px hsl(223, 64%, 98%);
@@ -21,15 +22,9 @@ const TopBarStyled = styled.div`
         width: 158px;
     }
 
-    #cart-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 50px;
-        cursor: pointer;
-    }
-
     #user-icon {
         width: 45px;
+        cursor: pointer;
     }
 `
 
@@ -42,9 +37,11 @@ export default function TopBar() {
             </div>
 
             <div className='top-bar-separator'>
-                <CartIcon />
+                <CartButton />
                 <UserIcon />
             </div>
+
+            <Cart />
         </TopBarStyled>
     )
 }

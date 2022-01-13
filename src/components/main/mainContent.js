@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ImageSlider from './imageSlider/imageSlider'
-import ItemDetails from './itemDetails/itemDetails'
+import ImageSlider from './imageSlider/imageSlider';
+import ItemDetails from './itemDetails/itemDetails';
 
 const MainStyled = styled.main`
     display: grid;

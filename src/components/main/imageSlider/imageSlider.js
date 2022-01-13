@@ -17,8 +17,11 @@ const ImageSliderStyle = styled.div`
 
             .image-slider-li {
                 flex-basis: 22%;
+                min-width: 22%;
                 cursor: pointer;
-
+                border-radius: 10px;
+                outline: solid 0px var(--orange);
+                transition: outline 100ms ease;
 
                 img {
                     border-radius: 10px;
@@ -30,8 +33,8 @@ const ImageSliderStyle = styled.div`
     }
 
     .image-slider-li.active {
-        border: solid 3px var(--orange);
-        border-radius: 15px;
+        outline: solid 3px var(--orange) !important;
+       
     }
 
     .image-slider-li.active img{
@@ -45,15 +48,13 @@ export default function ImageSlider() {
     function change(ev) {
         let newImgSrc = './images/' + ev.target.alt + '.jpg';
         
-        const mainDisplay = document.getElementById('main-img-display');
-
         const listItems = Array.from(document.querySelectorAll('.image-slider-li'));
 
-        if (mainDisplay.src === newImgSrc) {
+        if (state === newImgSrc) {
             return false
         } else {
             listItems.find(el => el.classList.contains('active') ? el.classList.remove('active') : false);
-            mainDisplay.src = newImgSrc;
+            setState(newImgSrc)
             ev.target.parentElement.classList.add('active');
         }
     }

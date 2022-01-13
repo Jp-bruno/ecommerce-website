@@ -17,11 +17,16 @@ const ButtonWrapper = styled.div`
         font-weight: 700;
         cursor: pointer;
         box-shadow: 0 10px 10px var(--paleOrange);
+        transition: filter 0.3s ease;
 
         img {
             transform: scale(0.8);
             filter: brightness(0) invert(1);
             margin-right: 10px;
+        }
+
+        :hover {
+            filter: opacity(0.8);
         }
     }
 

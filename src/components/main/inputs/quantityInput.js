@@ -24,29 +24,22 @@ const InputWrapperStyled = styled.div`
             height: 100%;
             display: flex;
             align-items: center;
+            transform: translate(0px, -2px);
         }
 
         :hover {
-            background: var(--paleOrange);
+            background-color: var(--paleOrange);
         }
     }
 
     .left {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-
-        span {
-            transform: translate(0px, -2px);
-        }
     }
 
     .right {
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-
-        span {
-            transform: translate(0px, -2px);
-        }
     }
 
     input {
