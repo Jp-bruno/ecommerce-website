@@ -20,7 +20,7 @@ const NavStyled = styled.nav`
             
             &:hover {
                 color: hsl(219, 9%, 45%);
-                border-bottom: solid 3px red;
+                border-bottom: solid 3px var(--orange);
 
                 a {
                     transition: transform 0.4s ease;
