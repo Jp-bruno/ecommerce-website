@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { CartContext } from '../../context/cartContext';
+import cartIcon from '../../assets/icon-cart.svg';
 
 const ButtonStyled = styled.button`
-  background: url('./images/icon-cart.svg');
+  background: url(${cartIcon});
   background-size: contain;
   background-repeat: no-repeat;
   height: 25px;

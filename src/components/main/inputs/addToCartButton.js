@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import cartIcon from '../../../assets/icon-cart.svg'
+
 
 const ButtonWrapper = styled.div`
     margin-left: 20px;
@@ -35,7 +37,7 @@ const ButtonWrapper = styled.div`
 export default function AddToCart() {
     return (
         <ButtonWrapper>
-            <button><img src='./images/icon-cart.svg' alt='add to cart' />Add to cart</button>
+            <button><img src={cartIcon} alt='add to cart' />Add to cart</button>
         </ButtonWrapper>
     )
 }

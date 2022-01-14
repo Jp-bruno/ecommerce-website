@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import image1 from '../../../assets/image-product-1.jpg';
+import image2 from '../../../assets/image-product-2.jpg';
+import image3 from '../../../assets/image-product-3.jpg';
+import image4 from '../../../assets/image-product-4.jpg';
+
+import image1thumbnail from '../../../assets/image-product-1-thumbnail.jpg';
+import image2thumbnail from '../../../assets/image-product-2-thumbnail.jpg';
+import image3thumbnail from '../../../assets/image-product-3-thumbnail.jpg';
+import image4thumbnail from '../../../assets/image-product-4-thumbnail.jpg';
+
 const ImageSliderStyle = styled.div`
     #main-img-display {
         width: 100%;
@@ -43,42 +53,43 @@ const ImageSliderStyle = styled.div`
 `;
 
 export default function ImageSlider() {
-    const [state, setState] = useState('./images/image-product-1.jpg');
+    const [state, setState] = useState(image1);
 
     function change(ev) {
-        let newImgSrc = './images/' + ev.target.alt + '.jpg';
-        
-        const listItems = Array.from(document.querySelectorAll('.image-slider-li'));
+        let newImgIndex = Number(ev.target.alt.slice(-1)) - 1;
 
-        if (state === newImgSrc) {
+        const images = [image1, image2, image3, image4];
+        
+        if (state === images[newImgIndex]) {
             return false
         } else {
+            const listItems = Array.from(document.querySelectorAll('.image-slider-li'));
             listItems.find(el => el.classList.contains('active') ? el.classList.remove('active') : false);
-            setState(newImgSrc)
+            setState(images[newImgIndex]);
             ev.target.parentElement.classList.add('active');
         }
     }
 
     return (
         <ImageSliderStyle>
-            <img id='main-img-display' src={state} alt='' />
+            <img id='main-img-display' src={state} alt='main-img' />
 
             <nav id='img-nav'>
                 <ul>
                     <li className='image-slider-li active'>
-                        <img src='./images/image-product-1-thumbnail.jpg' alt='image-product-1' onClick={change} />
+                        <img src={image1thumbnail} alt='image-product-1' onClick={change} />
                     </li>
 
                     <li className='image-slider-li '>
-                        <img src='./images/image-product-2-thumbnail.jpg' alt='image-product-2' onClick={change} />
+                        <img src={image2thumbnail} alt='image-product-2' onClick={change} />
                     </li>
                     
                     <li className='image-slider-li '>
-                        <img src='./images/image-product-3-thumbnail.jpg' alt='image-product-3' onClick={change} />
+                        <img src={image3thumbnail} alt='image-product-3' onClick={change} />
                     </li>
                                         
                     <li className='image-slider-li '>
-                        <img src='./images/image-product-4-thumbnail.jpg' alt='image-product-4' onClick={change} />
+                        <img src={image4thumbnail} alt='image-product-4' onClick={change} />
                     </li>
                 </ul>
             </nav>
