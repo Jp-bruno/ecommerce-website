@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const NavStyled = styled.nav`
     padding: 0 0 0 40px;
     display: flex;
-    height: 100%;
+    height: 120px;
 
     ul {
         list-style-type: none;
@@ -13,19 +13,21 @@ const NavStyled = styled.nav`
         li {
             margin: 0 17px;
             display: flex;
-            color: hsl(220, 14%, 75%);
+            color: var(--grayishBlue);
             transition: color 0.2s ease, border-bottom 0.2s ease;
             height: 100%;
             align-items: center;
             
+            a {
+                height: 100%;
+                display: grid;
+                place-items: center;
+            }
+
             &:hover {
-                color: hsl(219, 9%, 45%);
+                color: var(--black);
                 border-bottom: solid 3px var(--orange);
 
-                a {
-                    transition: transform 0.4s ease;
-                    transform: translateY(2px);
-                }
             }
         }
     }

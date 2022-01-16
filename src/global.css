@@ -17,9 +17,10 @@ a {
 
     --darkBlue: hsl(220, 13%, 13%);
     --darkGrayishBlue: hsl(219, 9%, 45%);
-    --grayishBlue: hsl(220, 8%, 30%);
-    --lightGrayishBlue: hsl(223, 64%, 98%);
-    --white: white;
+    --grayishBlue: hsl(221, 11%, 54%);
+    --lightGrayishBlue: hsl(231, 21%, 88%);
+    --numberInput: hsl(240, 18%, 97%);
+    --white: rgb(255, 255, 255);
     --black: black;
 }
 

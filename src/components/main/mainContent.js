@@ -5,7 +5,7 @@ import ItemDetails from './itemDetails/itemDetails';
 const MainStyled = styled.main`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 10% 15%;
+    margin: 7% 12%;
 `;
 
 export default function MainContent() {

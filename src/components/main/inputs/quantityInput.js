@@ -5,11 +5,11 @@ const InputWrapperStyled = styled.div`
     width: 150px;
     height: 50px;
     display: flex;
-    background: var(--lightGrayishBlue);
+    background: var(--numberInput);
     border-radius: 10px;
 
     button {
-        background: var(--lightGrayishBlue);
+        background: var(--numberInput);
         border: none;
         flex-grow: 1;
         font-size: 1.5rem;
@@ -43,7 +43,7 @@ const InputWrapperStyled = styled.div`
     }
 
     input {
-        background: var(--lightGrayishBlue);
+        background: var(--numberInput);
         flex-grow: 1;  
         text-align: center;
         border: none;   
@@ -65,7 +65,7 @@ export default function QuantityInput() {
         <InputWrapperStyled>
             <button className='left' onClick={() => state <= 0 ? false : setState(state - 1)}><span>-</span></button>
 
-            <input type='number' min={0} max={10} value={state}></input>
+            <input type='number' id='quantity-input' min={0} max={10} value={state} readOnly></input>
 
             <button className='right' onClick={() => state >= 15 ? false : setState(state + 1)}><span>+</span></button>
         </InputWrapperStyled>

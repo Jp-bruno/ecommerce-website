@@ -7,8 +7,8 @@ const ButtonStyled = styled.button`
   background: url(${cartIcon});
   background-size: contain;
   background-repeat: no-repeat;
-  height: 25px;
-  width: 25px;
+  height: 23px;
+  width: 23px;
   border: none;
   margin-right: 40px;
   cursor: pointer;

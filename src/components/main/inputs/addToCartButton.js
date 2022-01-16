@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import cartIcon from '../../../assets/icon-cart.svg'
-
+import cartIcon from '../../../assets/icon-cart.svg';
+import { useContext } from 'react';
+import { CartContext } from '../../../context/cartContext';
 
 const ButtonWrapper = styled.div`
     margin-left: 20px;
@@ -35,9 +36,10 @@ const ButtonWrapper = styled.div`
 `;
 
 export default function AddToCart() {
+    const context = useContext(CartContext)
     return (
         <ButtonWrapper>
-            <button><img src={cartIcon} alt='add to cart' />Add to cart</button>
+            <button onClick={context.addToCart} id='add-cart-button'><img src={cartIcon} alt='add to cart' />Add to cart</button>
         </ButtonWrapper>
     )
 }

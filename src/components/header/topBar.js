@@ -3,14 +3,14 @@ import Nav from './nav.js';
 import Logo from './logo.js';
 import CartButton from './cartButton.js';
 import UserIcon from './userIcon.js';
-import Cart from './cart.js';
+import Cart from './cart/cart.js';
 
 const TopBarStyled = styled.div`
-    border-bottom: solid 1px hsl(223, 64%, 98%);
+    border-bottom: solid 1px var(--lightGrayishBlue);
     display: flex;
     justify-content: space-between;
-    margin: 0 10%;
-    height: 100px;
+    margin: 0% 10% 0 10%;
+    height: auto;
 
     .top-bar-separator {
         display: flex;
@@ -18,13 +18,19 @@ const TopBarStyled = styled.div`
     }
 
     #logo {
-        height: 25px;
-        width: 158px;
+        height: 20px;
+        width: 140px;
     }
 
     #user-icon {
-        width: 45px;
+        width: 50px;
         cursor: pointer;
+        border-radius: 100px;
+        transition: outline-width 0.1s ease;
+
+        &:hover {
+            outline: solid 2px var(--orange);
+        }
     }
 `
 

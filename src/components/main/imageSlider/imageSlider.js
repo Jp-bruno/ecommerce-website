@@ -12,18 +12,24 @@ import image3thumbnail from '../../../assets/image-product-3-thumbnail.jpg';
 import image4thumbnail from '../../../assets/image-product-4-thumbnail.jpg';
 
 const ImageSliderStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     #main-img-display {
-        width: 100%;
+        width: 90%;
         border-radius: 20px;
     }
 
     #img-nav {
         margin-top: 30px;
+        
         ul {
+            margin: auto;
             display: flex;
             justify-content: space-between;
             list-style-type: none;
-            width: 100%;
+            width: 90%;
 
             .image-slider-li {
                 flex-basis: 22%;
