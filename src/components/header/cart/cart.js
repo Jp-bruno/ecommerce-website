@@ -42,7 +42,7 @@ const CartStyle = styled.div`
         top: 5%;
     }
 
-    .empty {
+    .empty-text {
         color: rgba(0,0,0,0.6);
         font-weight: 700;
     }
@@ -53,8 +53,6 @@ const CartStyle = styled.div`
         overflow-y: scroll;    
         scrollbar-width: none !important;
         background: white;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -67,6 +65,8 @@ const CartStyle = styled.div`
             width: 100%;
             display: grid;
             place-items: center;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
         }
     }
 
@@ -105,7 +105,7 @@ export default function Cart() {
 
                             ?
 
-                            <p className='empty'>Your cart is empty.</p>
+                            <p className='empty-text'>Your cart is empty.</p>
 
                             :
 
