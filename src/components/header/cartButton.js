@@ -12,15 +12,30 @@ const ButtonStyled = styled.button`
   border: none;
   margin-right: 40px;
   cursor: pointer;
+  position: relative;
+
+  &.stuffed-cart-button {
+      ::after {
+      content: attr(data-length);
+      font-size: 0.5rem;
+      width: 15px;
+      height: 10px;
+      position: absolute;
+      border-radius: 50px;
+      background: var(--orange);
+      top: -5px;
+      right: -5px;
+    }
+  }
+
 `
 
 export default function CartButton() {
   const context = useContext(CartContext);
 
-
   return (
     <>
-      <ButtonStyled onClick={context.toggleCart} />
+      <ButtonStyled data-length={context.items.length} onClick={context.toggleCart} id='cart-button-top-bar' className={context.items.length > 0 ? 'stuffed-cart-button' : 'empty-cart-button'}/>
     </>
   )
 }

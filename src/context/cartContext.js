@@ -21,10 +21,11 @@ export default function CartContextProvider({ children }) {
         if (quantity === 0) {
             return
         } else {
-
             const newItemsList = [...state.items, new Item(125, quantity)];
 
-            console.log(newItemsList)
+            const cartIconAfter = document.querySelector('#cart-button-top-bar');
+            cartIconAfter.style.content = 'aaaaaaaaaaa'
+            console.dir(cartIconAfter.style)
 
             setState({
                 ...state,
