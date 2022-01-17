@@ -1,5 +1,4 @@
 import { useState, createContext } from "react";
-import CartItem from "../components/header/cart/cartItem";
 
 export const CartContext = createContext();
 
@@ -9,14 +8,23 @@ export default function CartContextProvider({ children }) {
         items: []
     })
 
-    function addToCart() {
-        const quantityInput = document.querySelector("#quantity-input").value;
+    class Item {
+        constructor(price, quantity) {
+            this.price = price;
+            this.quantity = quantity;
+        }
+    }
 
-        if (Number(quantityInput) === 0) {
+    function addToCart() {
+        const quantity = Number(document.querySelector("#quantity-input").value);
+
+        if (quantity === 0) {
             return
         } else {
 
-            const newItemsList = [...state.items, { price: 125, quantity: quantityInput }];
+            const newItemsList = [...state.items, new Item(125, quantity)];
+
+            console.log(newItemsList)
 
             setState({
                 ...state,
@@ -25,8 +33,18 @@ export default function CartContextProvider({ children }) {
         }
     }
 
-    function removeFromCart() {
+    function removeFromCart(ev) {
+        let index = ev.target.parentElement.id.slice(-1);
+        const newArr = [...state.items]
+        newArr.splice(index, 1);
 
+        console.log(index, newArr)
+        
+        
+        setState({
+            ...state,
+            items: newArr
+        })
     }
 
     function toggleCart() {

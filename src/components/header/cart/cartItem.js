@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import deleteIcon from '../../../assets/icon-delete.svg';
 import imageProduct from '../../../assets/image-product-1-thumbnail.jpg';
+import { CartContext } from '../../../context/cartContext';
+import { useContext, useRef } from 'react';
 
 const CartItemStyled = styled.div`
     display: flex;
@@ -16,6 +18,10 @@ const CartItemStyled = styled.div`
         background: none;
         border: 0;
         cursor: pointer;
+
+        img {
+            pointer-events: none;
+        }
     }
 
     .delete-icon-cart {
@@ -24,17 +30,21 @@ const CartItemStyled = styled.div`
     }
 `;
 
-export default function CartItem({ price, quantity, key2 }) {
+export default function CartItem({ price, quantity, id, key2 }) {
+    const context = useContext(CartContext);
+
+    const CardElement = useRef();
+
     return (
-        <CartItemStyled key={key2}>
-            <img className='cart-item-img' src={imageProduct}/>
+        <CartItemStyled key={key2} ref={CardElement} id={id}>
+            <img className='cart-item-img' src={imageProduct} />
 
             <div>
                 <p>Fall Limited Edition Sneakers</p>
                 <p>{`$${price} x ${quantity} `}<strong>{`$${price * quantity}`}</strong></p>
             </div>
 
-            <button className='delete-icon-button'><img className='delete-icon-cart' src={deleteIcon}/></button>
+            <button className='delete-icon-button' onClick={context.removeFromCart}><img className='delete-icon-cart' src={deleteIcon} /></button>
         </CartItemStyled>
     )
 }
