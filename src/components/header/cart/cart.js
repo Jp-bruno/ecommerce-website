@@ -49,7 +49,7 @@ const CartStyle = styled.div`
 
     .cart-list-wrapper {
         position: relative;
-        max-height: 45vh;
+        max-height: 300px;
         overflow-y: scroll;    
         scrollbar-width: none !important;
         background: white;
@@ -113,11 +113,11 @@ export default function Cart() {
                                 {
                                     context.items.map(el => {
                                         return (
-                                            <li>
+                                            <li key={context.items.indexOf(el)}>
                                                 <CartItem
                                                     price={el.price}
                                                     quantity={el.quantity}
-                                                    key={context.items.indexOf(el)} key2={context.items.indexOf(el) + 'a'}
+                                                    key2={context.items.indexOf(el) + 'a'}
                                                     id={'id' + context.items.indexOf(el)}
                                                 />
                                             </li>

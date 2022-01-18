@@ -17,9 +17,11 @@ const ButtonStyled = styled.button`
   &.stuffed-cart-button {
       ::after {
       content: attr(data-length);
+      color: white;
       font-size: 0.5rem;
       width: 15px;
-      height: 10px;
+      height: 11px;
+      transform: scale(1.1);
       position: absolute;
       border-radius: 50px;
       background: var(--orange);
@@ -35,7 +37,12 @@ export default function CartButton() {
 
   return (
     <>
-      <ButtonStyled data-length={context.items.length} onClick={context.toggleCart} id='cart-button-top-bar' className={context.items.length > 0 ? 'stuffed-cart-button' : 'empty-cart-button'}/>
+      <ButtonStyled 
+        data-length={context.items.length} 
+        onClick={context.toggleCart} 
+        id='cart-button-top-bar' 
+        className={context.items.length > 0 ? 'stuffed-cart-button' : 'empty-cart-button'}
+      />
     </>
   )
 }

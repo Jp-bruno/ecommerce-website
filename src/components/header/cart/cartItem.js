@@ -37,14 +37,14 @@ export default function CartItem({ price, quantity, id, key2 }) {
 
     return (
         <CartItemStyled key={key2} ref={CardElement} id={id}>
-            <img className='cart-item-img' src={imageProduct} />
+            <img className='cart-item-img' src={imageProduct} alt='' />
 
             <div>
                 <p>Fall Limited Edition Sneakers</p>
                 <p>{`$${price} x ${quantity} `}<strong>{`$${price * quantity}`}</strong></p>
             </div>
 
-            <button className='delete-icon-button' onClick={context.removeFromCart}><img className='delete-icon-cart' src={deleteIcon} /></button>
+            <button className='delete-icon-button' onClick={context.removeFromCart}><img className='delete-icon-cart' src={deleteIcon} alt=''/></button>
         </CartItemStyled>
     )
 }
