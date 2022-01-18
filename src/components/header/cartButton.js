@@ -30,6 +30,10 @@ const ButtonStyled = styled.button`
     }
   }
 
+  @media (max-width: 990px) {
+    margin: 0;
+  }
+
 `
 
 export default function CartButton() {

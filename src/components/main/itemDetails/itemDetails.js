@@ -5,20 +5,48 @@ import AddToCart from '../inputs/addToCartButton';
 const ItemDetailsStyle = styled.div`
     padding: 15% 0 0 20%;
 
+    @media(max-width: 990px) {
+        padding: 20px 15px;
+    }
+
     .sneaker-company-p {
         font-size: 0.7rem;
         color: var(--orange);
         font-weight: 700;
         letter-spacing: 2px;
+
+        @media(max-width: 990px) {
+            font-size: 0.8rem;
+        }
+    }
+
+    #item-title {
+        margin: 10px 0 26px;
+
+        @media(max-width: 990px) {
+            margin: 10px 0 15px;
+        }
     }
 
     .product-description {
         color: var(--darkGrayishBlue);
         line-height: 22px;
+
+        
+        @media(max-width: 990px) {
+            margin: 10px 0 25px;
+        }
     }
 
-    #item-title {
-        margin: 10px 0 26px;
+    #prices {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 990px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
     #price-with-discount {
@@ -27,6 +55,10 @@ const ItemDetailsStyle = styled.div`
         font-weight: 700;
         display: flex;
         align-items: center;
+        
+        @media (max-width: 990px) {
+            margin: 0;
+        }
 
         ::after {
             content: '50%';
@@ -39,20 +71,34 @@ const ItemDetailsStyle = styled.div`
             background: var(--paleOrange);
             height: 24px;
             margin-left: 13px;
+
+            @media (max-width: 990px) {
+                margin: 0 0 0 20px;
+                border-radius: 5px;
+            }
         }
     }
 
     #price {
         color: var(--grayishBlue);
         font-weight: 700;
-        text-decoration-line: line-through; 
+        text-decoration-line: line-through;
     }
 
     #inputs-section {
         width: 100%;
+        height: auto;
         display: flex;
         position: relative;
         margin-top: 50px;
+
+        @media (max-width: 990px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            row-gap: 20px;
+            margin-bottom: 200px;
+        }
     }
 `;
 
@@ -69,8 +115,11 @@ export default function ItemDetails() {
                 they'll withstand everything the weather can offer.
             </p>
 
-            <p id='price-with-discount'>$125.00</p>
-            <p id='price'>$250.00</p>
+            <div id='prices'>
+                <p id='price-with-discount'>$125.00</p>
+                <p id='price'>$250.00</p>
+            </div>
+
 
             <div id='inputs-section'>
                 <QuantityInput />

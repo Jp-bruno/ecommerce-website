@@ -9,6 +9,10 @@ import image3 from '../../../assets/image-product-3.jpg';
 import image4 from '../../../assets/image-product-4.jpg';
 
 const ModalStyled = styled.div`
+    @media (max-width: 990px) {
+        display: none;
+    }
+
     position: fixed;
     z-index: 20;
     left: 0;

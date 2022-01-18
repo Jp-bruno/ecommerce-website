@@ -31,6 +31,19 @@ const ButtonWrapper = styled.div`
         :hover {
             filter: opacity(0.8);
         }
+
+    }
+
+    
+    @media (max-width: 990px) {
+        width: 100%;
+        margin: 0;
+        
+        button {
+            width: 100%;
+            height: 60px;
+
+        }
     }
 
 `;

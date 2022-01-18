@@ -56,6 +56,10 @@ const InputWrapperStyled = styled.div`
         }
     }
 
+    @media (max-width: 990px) {
+        width: 100%;
+        height: 60px;
+    }
 `;
 
 export default function QuantityInput() {

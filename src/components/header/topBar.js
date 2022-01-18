@@ -4,11 +4,14 @@ import Logo from './logo.js';
 import CartButton from './cartButton.js';
 import UserIcon from './userIcon.js';
 import Cart from './cart/cart.js';
+import MenuToggler from './menuToggler.js';
+import { useState } from 'react';
 
 const TopBarStyled = styled.div`
     border-bottom: solid 1px var(--lightGrayishBlue);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0% 10% 0 10%;
     height: auto;
 
@@ -32,14 +35,41 @@ const TopBarStyled = styled.div`
             outline: solid 2px var(--orange);
         }
     }
+
+    @media (max-width: 990px) {
+        margin: 0;
+        height: 70px;
+        justify-content: none;
+
+        #user-icon {
+            width: 25px;
+            margin: 0 20px;
+        }
+
+        #logo {
+            margin: 0 0 0 10px;
+        }
+    }
+
 `
 
 export default function TopBar() {
+    const [state, setState] = useState({
+        mobileMenuOpen: false
+    })
+
+    function ToggleMobileMenu() {
+        setState({
+            mobileMenuOpen: !(state.mobileMenuOpen)
+        })
+    }
+
     return (
         <TopBarStyled>
             <div className='top-bar-separator'>
+                <MenuToggler ToggleMobileMenu={ToggleMobileMenu}/>
                 <Logo />
-                <Nav />
+                <Nav ToggleMobileMenu={ToggleMobileMenu} mobileMenuOpen={state.mobileMenuOpen} />
             </div>
 
             <div className='top-bar-separator'>

@@ -6,6 +6,10 @@ import image3thumbnail from '../../../assets/image-product-3-thumbnail.jpg';
 import image4thumbnail from '../../../assets/image-product-4-thumbnail.jpg';
 
 const NavStyled = styled.nav`
+    @media (max-width: 990px) {
+        display: none;
+    }
+
     margin-top: 30px;
         
     ul {

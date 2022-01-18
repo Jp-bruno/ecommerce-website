@@ -33,13 +33,13 @@ const CartStyle = styled.div`
 
     &.isOpen {
         filter: opacity(1);
-        top: 13%;
+        top: 100px;
     }
 
     &.isClosed {
         pointer-events: none;
         filter: opacity(0);
-        top: 5%;
+        top: 10px;
     }
 
     .empty-text {
@@ -83,6 +83,20 @@ const CartStyle = styled.div`
             margin-top: 25px;
         }
 
+    }
+
+    @media (max-width: 990px) {
+        width: 380px;
+
+        &.isOpen {
+            filter: opacity(1);
+            top: 80px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        right: 0;
+        width: 100%;
     }
 `;
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CloseButtonMobileMenu from './closeButton.js';
 
 const NavStyled = styled.nav`
     padding: 0 0 0 40px;
@@ -31,12 +32,45 @@ const NavStyled = styled.nav`
             }
         }
     }
+
+    
+    @media (max-width: 990px) {
+        position: fixed;
+        z-index: 30;
+        height: 100%;
+        top: 0;
+        padding: 0;
+        background: white;
+        padding: 20px 0 0 20px;
+        flex-direction: column;
+        left: -100%;
+        transition: left 0.3s ease;
+        
+        ul {
+            flex-direction: column;
+            width: 60vw;
+
+            li {
+                margin: 15px 0;
+                height: auto;
+                font-weight: 700;
+                color: black;
+                font-size: 1.1rem;
+                width: fit-content;
+            }
+        }
+
+        &[data-mobileOpen=true] {
+            left: 0;
+        }
+    }
 `;
 
 
-export default function Nav() {
+export default function Nav({ToggleMobileMenu, mobileMenuOpen}) {
     return (
-        <NavStyled>
+        <NavStyled data-mobileOpen={mobileMenuOpen}>
+            <CloseButtonMobileMenu ToggleMobileMenu={ToggleMobileMenu}/>
             <ul>
                 <li>
                     <a>Collections</a>

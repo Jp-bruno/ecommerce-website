@@ -18,6 +18,14 @@ const ImageSliderStyle = styled.div`
         border-radius: 20px;
         cursor: pointer;
     }
+
+    @media(max-width: 990px) {
+        
+        .main-img-display {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
 `;
 
 export default function ImageSlider() {
