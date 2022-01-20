@@ -1,19 +1,13 @@
 import { useState, createContext } from "react";
+import {Item} from '../objectModels/models';
 
 export const CartContext = createContext();
 
 export default function CartContextProvider({ children }) {
     const [state, setState] = useState({
         isOpen: false,
-        items: []
+        items: [],
     })
-
-    class Item {
-        constructor(price, quantity) {
-            this.price = price;
-            this.quantity = quantity;
-        }
-    }
 
     function addToCart() {
         const quantity = Number(document.querySelector("#quantity-input").value);
@@ -21,11 +15,9 @@ export default function CartContextProvider({ children }) {
         if (quantity === 0) {
             return
         } else {
-            const newItemsList = [...state.items, new Item(125, quantity)];
+            const newItemsList = [...state.items, new Item(125, quantity, '50%', 'Theseaa low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they\'ll withstand everything the weather can offer.')];
 
             const cartIconAfter = document.querySelector('#cart-button-top-bar');
-            cartIconAfter.style.content = 'aaaaaaaaaaa'
-            console.dir(cartIconAfter.style)
 
             setState({
                 ...state,

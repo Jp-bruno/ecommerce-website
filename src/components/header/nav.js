@@ -60,7 +60,7 @@ const NavStyled = styled.nav`
             }
         }
 
-        &[data-mobileOpen=true] {
+        &[data-mobileopen=true] {
             left: 0;
         }
     }
@@ -69,7 +69,7 @@ const NavStyled = styled.nav`
 
 export default function Nav({ToggleMobileMenu, mobileMenuOpen}) {
     return (
-        <NavStyled data-mobileOpen={mobileMenuOpen}>
+        <NavStyled data-mobileopen={mobileMenuOpen}>
             <CloseButtonMobileMenu ToggleMobileMenu={ToggleMobileMenu}/>
             <ul>
                 <li>
