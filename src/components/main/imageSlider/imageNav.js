@@ -49,24 +49,24 @@ const NavStyled = styled.nav`
     }
 `;
 
-export default function ImageNav({change, modal}) {
+export default function ImageNav({changeImageByNav, modal}) {
     return (
         <NavStyled id='img-nav'>
             <ul>
                 <li className={`image-slider-li ${modal ? 'modal' : 'active'}`}>
-                    <img src={image1thumbnail} alt='image-product-1' onClick={change} />
+                    <img src={image1thumbnail} alt='image-product-1' onClick={changeImageByNav} />
                 </li>
 
                 <li className={`image-slider-li ${modal ? 'modal' : ''}`}>
-                    <img src={image2thumbnail} alt='image-product-2' onClick={change} />
+                    <img src={image2thumbnail} alt='image-product-2' onClick={changeImageByNav} />
                 </li>
 
                 <li className={`image-slider-li ${modal ? 'modal' : ''}`}>
-                    <img src={image3thumbnail} alt='image-product-3' onClick={change} />
+                    <img src={image3thumbnail} alt='image-product-3' onClick={changeImageByNav} />
                 </li>
 
                 <li className={`image-slider-li ${modal ? 'modal' : ''}`}>
-                    <img src={image4thumbnail} alt='image-product-4' onClick={change} />
+                    <img src={image4thumbnail} alt='image-product-4' onClick={changeImageByNav} />
                 </li>
             </ul>
         </NavStyled>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Modal from './modal';
 import ImageNav from './imageNav';
+import Arrow from './arrow';
 
 import image1 from '../../../assets/image-product-1.jpg';
 import image2 from '../../../assets/image-product-2.jpg';
@@ -34,7 +35,7 @@ export default function ImageSlider() {
         modalIsOpen: false
     });
 
-    function change(ev) {
+    function changeImageByNav(ev) {
         let newImgIndex = Number(ev.target.alt.slice(-1)) - 1;
 
         const images = [image1, image2, image3, image4];
@@ -49,6 +50,24 @@ export default function ImageSlider() {
         }
     }
 
+    function changeMobileImageByArrow(ev) {
+        const images = [image1, image2, image3, image4];
+
+        let activeImageIndex = images.findIndex(el => el === state.activeImage);
+
+        if (ev.target.classList.contains('left')) {
+            setState({
+                ...state,
+                activeImage: images[activeImageIndex - 1] ? images[activeImageIndex - 1] : images[images.length - 1]
+            })
+        } else {
+            setState({
+                ...state,
+                activeImage: images[activeImageIndex + 1] ? images[activeImageIndex + 1] : images[0]
+            })
+        }
+    }
+
     function toggleModal() {
         if (!(state.modalIsOpen)) {
             setState({
@@ -58,14 +77,14 @@ export default function ImageSlider() {
 
             setTimeout(() => {
                 const listItems = Array.from(document.querySelectorAll('.image-slider-li'));
-            
+
                 const listItemsModal = Array.from(document.querySelectorAll('.image-slider-li.modal'));
-    
+
                 let selectedItemIndex = listItems.find(el => el.classList.contains('active')).firstChild.alt.slice(-1) - 1;
-    
+
                 listItemsModal[selectedItemIndex].classList.add('active');
             }, 100)
-            
+
         } else {
             setState({
                 ...state,
@@ -76,11 +95,15 @@ export default function ImageSlider() {
 
     return (
         <ImageSliderStyle>
+            <Arrow direction='left' modal={false} changeMobileImageByArrow={changeMobileImageByArrow} />
+
             <img className='main-img-display' src={state.activeImage} alt='main-img' onClick={toggleModal} />
+            
+            <Arrow direction='right' modal={false} changeMobileImageByArrow={changeMobileImageByArrow} />
 
-            <ImageNav change={change} activeImage={state.activeImage}/>
+            <ImageNav changeImageByNav={changeImageByNav} activeImage={state.activeImage} />
 
-            {state.modalIsOpen ? <Modal toggleModal={toggleModal} activeImage={state.activeImage}/> : null}
+            {state.modalIsOpen ? <Modal toggleModal={toggleModal} activeImage={state.activeImage} /> : null}
         </ImageSliderStyle>
     )
 }

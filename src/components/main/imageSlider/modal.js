@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import IconClose from '../../../assets/icon-close.svg';
 import ImageNav from './imageNav';
+import Arrow from './arrow';
 import { useState } from 'react';
 
 import image1 from '../../../assets/image-product-1.jpg';
@@ -99,7 +99,7 @@ export default function Modal({ toggleModal, activeImage }) {
         }
     }
 
-    function changeByArrow(ev) {
+    function changeModalImageByArrow(ev) {
         let index = state.images.findIndex(el => el === state.modalActiveImage);
 
         const listItems = Array.from(document.querySelectorAll('.image-slider-li.modal'));
@@ -136,15 +136,12 @@ export default function Modal({ toggleModal, activeImage }) {
                     </svg>
                 </button>
 
-                <button className='modal-change-image-button left' onClick={changeByArrow}>
-                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
-                </button>
+                <Arrow direction='left' modal={true} changeModalImageByArrow={changeModalImageByArrow} />
 
                 <img src={state.modalActiveImage} alt='main-img' onClick={toggleModal} />
 
-                <button className='modal-change-image-button right' onClick={changeByArrow}>
-                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
-                </button>
+                <Arrow direction='right' modal={true} changeModalImageByArrow={changeModalImageByArrow} />
+
 
                 <ImageNav change={change} modal={true} />
             </div>
