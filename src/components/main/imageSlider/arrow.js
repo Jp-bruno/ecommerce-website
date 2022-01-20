@@ -42,7 +42,11 @@ const ArrowStyled = styled.button`
     }
 `;
 
+
+/*the modal img displayer and the main image displayer doesnt share the same function to change the images*/
+
 export default function Arrow({ direction, modal, changeModalImageByArrow, changeMobileImageByArrow }) {
+    
     return (
         <ArrowStyled
             className={`${direction === 'left' ? 'left' : 'right'} ${modal ? 'modal' : 'no-modal'}`}
